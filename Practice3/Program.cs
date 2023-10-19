@@ -1,4 +1,4 @@
 ﻿
 using Practice3;
 
-Tasks.Task5();
+Tasks.Task5("(())");
