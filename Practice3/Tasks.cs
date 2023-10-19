@@ -84,28 +84,16 @@ namespace Practice3
             Console.WriteLine(longestMas.Count);
         }
 
-        public static bool Task5(string brackets)
+        public static void Task5(string brackets)
         {
             int count = 0;
-            foreach (var bracket in brackets)
+            string symbols = Console.ReadLine();
+            for (int i = 0; i < symbols.Length; i++)
             {
-                if (bracket == '(')
-                {
-                    count += 1;
-                }
-                else
-                {
-                    if (count == 0)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        count -= 1;
-                    }  
-                }
+                if (symbols[i] == '(') count++;
+                else if (symbols[i] == ')') count--;
             }
-            return count == 0;
+            if (count == 0) Console.WriteLine(symbols.Length / 2);
         }
     }
 }
