@@ -1,4 +1,4 @@
 ﻿
 using Practice3;
 
-Console.WriteLine(Tasks.Task5("(())()("));
+Tasks.Task5();
