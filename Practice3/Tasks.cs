@@ -86,14 +86,37 @@ namespace Practice3
 
         public static void Task5(string brackets)
         {
+            int maxDepth = 0;
+            int currentDepth = 0;
             int count = 0;
-            string symbols = Console.ReadLine();
-            for (int i = 0; i < symbols.Length; i++)
+            foreach (var bracket in brackets)
             {
-                if (symbols[i] == '(') count++;
-                else if (symbols[i] == ')') count--;
+                if (bracket == '(')
+                {
+                    count += 1;
+                    currentDepth += 1;
+                }
+                else
+                {
+                    if (count == 0)
+                    {
+                        Console.WriteLine("Not valid");
+                        return;
+                    }
+                    else
+                    {
+                        count -= 1;
+                        currentDepth -= 1;
+                    }  
+                }
+                maxDepth = Math.Max(currentDepth, maxDepth);
             }
-            if (count == 0) Console.WriteLine(symbols.Length / 2);
+            if (count != 0)
+            {
+                Console.WriteLine("Not valid"); 
+                return;
+            }   
+            Console.WriteLine($"Max depth: {maxDepth}");
         }
     }
 }
